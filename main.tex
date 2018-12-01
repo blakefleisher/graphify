@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+% LaTeX Template
+% Version 1.1 (14/06/14)
+%
+% Created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+% 
+% Further modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+%\documentclass{article}
+
+\documentclass[final, 12pt]{beamer}
+%\usepackage[size=custom,width=150,height=107,scale=.5,orientation=portrait]{beamerposter}
+%\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usepackage{pst-slpe}
+\usepackage{pst-grad}
+\usepackage{pst-node}
+\usepackage[margin=1in,paperwidth=30in,paperheight=18]{geometry}
+\usepackage{pst-blur} 
+
+
+
+
+\psset{framearc=0}
+%\psset{yunit=1.0cm,xunit=1.0cm}
+\psset{framesep=6pt}
+\psset{linewidth=2pt}
+\psset{shadowsize=8pt}
+
+\definecolor{anthropologist1}{HTML}{FFFF00}  
+\definecolor{anthropologist2}{HTML}{FFFFCC}
+\definecolor{anthropologist3}{HTML}{CCCC00}
+
+
+\definecolor{sociologist1}{HTML}{DDFF00}  
+\definecolor{sociologist2}{HTML}{DDFFCC}
+\definecolor{sociologist3}{HTML}{ACCC00}
+
+\definecolor{politicalscientist1}{HTML}{DDFF00}  
+\definecolor{politicalscientist2}{HTML}{DDFFCC}
+\definecolor{politicalscientist3}{HTML}{ACCC00}
+
+
+
+\definecolor{linguist1}{HTML}{FF7F24}  
+\definecolor{linguist2}{HTML}{FFD700} % FFA07A
+\definecolor{linguist3}{HTML}{FFA07A}
+\definecolor{linguist-line}{HTML}{D2691E}
+
+\definecolor{logician1}{HTML}{FF6666}  
+\definecolor{logician2}{HTML}{FFE6E3}
+\definecolor{logician3}{HTML}{FF0000}
+
+\definecolor{linglog1}{HTML}{FF7F24} % for barhillel 
+\definecolor{linglog2}{HTML}{FFE6E3}
+\definecolor{linglog3}{HTML}{FF0000}
+ 
+
+
+\definecolor{mathematician1}{HTML}{BCA9F5}  
+\definecolor{mathematician2}{HTML}{E0ECF8}
+\definecolor{mathematician3}{HTML}{0000FF}
+
+
+\definecolor{philosopher1}{HTML}{00FFFF} 
+\definecolor{philosopher2}{HTML}{EBFCF3}
+\definecolor{philosopher3}{HTML}{269900}
+ 
+\definecolor{phillogic1}{HTML}{00FF7F}
+\definecolor{phillogic2}{HTML}{EAEAEA}
+
+
+\definecolor{philpsych1}{HTML}{00FFFF}  
+\definecolor{philpsych2}{HTML}{66FF66} % FFA07A
+\definecolor{philpsych3}{HTML}{347C2C} 
+
+
+\definecolor{psychologist1}{HTML}{66FF66}
+\definecolor{psychologist2}{HTML}{EBFCF3 } % aqua (BLUE)
+\definecolor{psychologist3}{HTML}{00FF00}
+
+
+\definecolor{hostile}{RGB}{255 0 0 }
+\definecolor{teacher}{RGB}{0 0 255}
+\definecolor{colleagues}{RGB}{64 200 0}
+\definecolor{influence}{RGB}{10 128 10}
+\definecolor{other}{RGB}{255 255 255}
+%\definecolor{2ndgen-fill}{RGB}{0 255 255}
+%\definecolor{neogrammarian-fill}{RGB}{255 255 0}
+
+\definecolor{gestalt-fill}{RGB}{255 255 0}
+
+\definecolor{fillcolor3}{RGB}{0 255 127}
+\definecolor{russianschool}{RGB}{255, 230, 204}
+\definecolor{circle}{RGB}{255, 230, 204}
+
+\definecolor{linguist-fill1}{RGB}{255 255 0}
+\definecolor{linguist-fill2}{RGB}{255 255 0}
+\definecolor{linguist-fill3}{RGB}{255 255 0}
+\definecolor{linguist-fill4}{RGB}{255 255 0}
+
+\newrgbcolor{psychology-fill1}{ 0.0 1.0 1.0  }
+\newrgbcolor{gestalt-fill} { 0.0 1.0 1.0  }
+\newrgbcolor{philosopher-fill} { 0.0 1.0 1.0  }
+
+
+\newrgbcolor{fillcolor1}{ 0.0 1.0 1.0  }
+\newrgbcolor{fillcolor2}{ 0.0 1.0 8.0  }
+
+
+
+
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+%\title{Battle in the Mind Fields} % Poster title
+
+%\author{John A. Goldsmith and Bernard Laks} % Author(s)
+
+%\institute{Department and University Name} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\include{new-poster-with-sociology2-2-1}
+ 
+\end{frame} % End of the enclosing frame
+
+\end{document}
+
