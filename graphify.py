@@ -265,7 +265,7 @@ for line in datalines:
 infile.close()
 
 for name, box in sorted(Boxes.items()):
-	box.boxprint(outflile)
+	box.boxprint(outfile)
 
 
 #--------------------------------------------------------------------##
