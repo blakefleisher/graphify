@@ -4,7 +4,7 @@
 #--------------------------------------------------------------------##
 def my_print(mystring):
 	print(mystring)
-	print >> outfile, mystring
+	print(outfile, mystring)
 
 class Box:
 	def __init__(self, my_name, my_born, my_died, my_xvalue, my_yvalue):
@@ -23,15 +23,14 @@ class Box:
 		for item in sorted(self.Items):
 			print("{0:<12s} {1:<15s}".format(item, self.Items[item]))
 
-	def boxprinttofile (self , file):
-		print >>file, "{0:<36s} {1:<12s} born: {2:5s} died: {3:5s} coordinates: ({4:4s}, {5:4s}) ".format(self.name, self.Items['discipline'], self.born, self.died, self.xvalue, self.yvalue)
+	def boxprinttofile (self, file):
+		print(file, "{0:<36s} {1:<12s} born: {2:5s} died: {3:5s} coordinates: ({4:4s}, {5:4s}) ".format(self.name, self.Items['discipline'], self.born, self.died, self.xvalue, self.yvalue))
 		for item in sorted(self.Items):
-			print >>file, "{0:<12s} {1:<15s}".format(item,
-		self.Items[item])
+			print(file, "{0:<12s} {1:<15s}".format(item, self.Items[item]))
 
 	def print_psset(self,file):
 		for variable in Values:
-			print >>file, variable, Values[variable]
+			print(file, variable, Values[variable])
 
 
 #--------------------------------------------------------------------##
@@ -135,11 +134,10 @@ for line in datalines:
 
 		elif piece2[:13] == "{\\psframebox{":
 			remainder= piece2[12:]
-				#print remainder
+			print(remainder)
 
 		else:
 			print("error!", line)
-			#    print
 
 		if remainder[:19] =="{\\begin{tabular}{c}":
 			remainder = remainder[19:]
@@ -159,18 +157,16 @@ for line in datalines:
 		Boxes[name] = myBox
 			#First take default values from Values, then overwrite by local "items"
 
-		# The two for loops below have problems
 
 		for variable in Values:
 			myBox.set(variable,Values[variable]) # these are the current default values.
-			print >>outfile, variable
+			print(outfile, variable)
 			if variable == "discipline":
-				print >>outfile, 160, "discipline", Values["discipline"]
-		for item in items:                      # these are the values set in this particular box/person
+				print(outfile, 160, "discipline", Values["discipline"])
+		for item in items:               # these are the values set in this particular box/person
 			variable, value = item.split("=")
 			myBox.set(variable, value)
-		#	print variable, value, 166
-
+			print(variable, value, 166)
 
 		if myBox.Items["fillstyle"]=="none"  or myBox.Items["fillstyle"]=="solid":
 			myBox.remove_variable("gradbegin")
@@ -265,8 +261,7 @@ for line in datalines:
 infile.close()
 
 for name, box in sorted(Boxes.items()):
-	box.boxprint(outfile)
-
+	box.boxprint()
 
 #--------------------------------------------------------------------##
 #		output
